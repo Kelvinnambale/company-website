@@ -143,7 +143,7 @@
         </div>
     </div>
 </section>
-        <!-- Services Section -->
+     <!-- Services Section -->
     <section id="services" class="services">
         <div class="section__container">
             <h2 class="section__title">Our Services</h2>
@@ -284,6 +284,7 @@
         </div>
     </section>
 
+
     
 
     <!-- Footer -->
@@ -328,8 +329,58 @@
     
                   
   <!--=============== MAIN JS ===============-->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js">  </script>
+  <script>
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter__btn');
+    const serviceCards = document.querySelectorAll('.service__card');
 
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            serviceCards.forEach(card => {
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                    card.style.animation = 'fadeInUp 0.6s ease forwards';
+                } else {
+                    if (card.getAttribute('data-category') === filterValue) {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeInUp 0.6s ease forwards';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all service cards
+    serviceCards.forEach(card => {
+        observer.observe(card);
+    });
+</script>
+  <!--=============== LOADER JS ===============-->
   <script>
     // Hide loading overlay when page is fully loaded
     window.addEventListener('load', function() {
