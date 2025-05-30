@@ -284,7 +284,121 @@
         </div>
     </section>
 
-
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact__container">
+            <div class="contact__content">
+                <!-- Contact Information -->
+                <div class="contact__info">
+                    <h2 class="contact__title">Get In Touch</h2>
+                    <p class="contact__description">
+                        Ready to transform your business with cutting-edge IT solutions? We're here to help you every step of the way. Reach out to us and let's discuss how we can bring your vision to life.
+                    </p>
+                    
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h4>Our Location</h4>
+                                <p>123 Tech Street<br>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h4>Call Us</h4>
+                                <p>+254 700 123 456<br>+254 722 987 654</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h4>Email Us</h4>
+                                <p>info@techsolutions.co.ke<br>support@techsolutions.co.ke</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h4>Working Hours</h4>
+                                <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__social">
+                        <a href="#" class="social__link"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social__link"><i class="ri-twitter-x-fill"></i></a>
+                        <a href="#" class="social__link"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social__link"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social__link"><i class="ri-whatsapp-line"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact__form">
+                    <h3 class="form__title">Send us a Message</h3>
+                    <form>
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder=" " required>
+                            <label class="form__label">Full Name</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder=" " required>
+                            <label class="form__label">Email Address</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <input type="tel" class="form__input" placeholder=" ">
+                            <label class="form__label">Phone Number</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <select class="form__select" required>
+                                <option value="">Select a Service</option>
+                                <option value="web-design">Web Design & Development</option>
+                                <option value="ecommerce">E-commerce Solutions</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="system-integration">System Integration</option>
+                                <option value="ecitizen">eCitizen Services</option>
+                                <option value="kra">KRA Services</option>
+                                <option value="it-support">IT Support & Maintenance</option>
+                                <option value="data-analytics">Data Analytics</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label class="form__label">Service Required</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <input type="text" class="form__input" placeholder=" ">
+                            <label class="form__label">Subject</label>
+                        </div>
+                        
+                        <div class="form__group">
+                            <textarea class="form__textarea" placeholder=" " required></textarea>
+                            <label class="form__label">Your Message</label>
+                        </div>
+                        
+                        <button type="submit" class="form__button">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     
 
     <!-- Footer -->
@@ -380,6 +494,80 @@
         observer.observe(card);
     });
 </script>
+<script>
+    // Form submission handling
+    document.querySelector('.contact__form form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const button = document.querySelector('.form__button span');
+        const originalText = button.textContent;
+        
+        // Show loading state
+        button.textContent = 'Sending...';
+        document.querySelector('.form__button').style.pointerEvents = 'none';
+        
+        // Simulate form submission
+        setTimeout(() => {
+            button.textContent = 'Message Sent!';
+            setTimeout(() => {
+                button.textContent = originalText;
+                document.querySelector('.form__button').style.pointerEvents = 'auto';
+                this.reset();
+            }, 2000);
+        }, 1500);
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+
+    // Observe contact items
+    document.querySelectorAll('.contact__item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'all 0.6s ease';
+        observer.observe(item);
+    });
+
+    // Floating label functionality enhancement
+    document.querySelectorAll('.form__input, .form__textarea').forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() !== '') {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+        });
+    });
+
+    // Handle select dropdown label
+    document.querySelector('.form__select').addEventListener('change', function() {
+        const label = this.nextElementSibling;
+        if (this.value !== '') {
+            label.style.top = '-0.5rem';
+            label.style.left = '1rem';
+            label.style.fontSize = 'var(--small-font-size)';
+            label.style.color = 'var(--black-color-light)';
+            label.style.fontWeight = '500';
+        }
+    });
+</script>
+
   <!--=============== LOADER JS ===============-->
   <script>
     // Hide loading overlay when page is fully loaded
