@@ -909,112 +909,6 @@ a {
   color: var(--accent-color);
   font-weight: bold;
 }
-/* Contact Section */
-.contact {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, var(--black-color) 0%, var(--black-color-light) 100%);
-  color: var(--white-color);
-}
-
-.contact__container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.contact__info h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--white-color);
-}
-
-.contact__info p {
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.8;
-}
-
-.contact__item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.contact__item i {
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  width: 30px;
-}
-
-.contact__form {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  padding: 2rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.form__group {
-  margin-bottom: 1.5rem;
-}
-
-.form__label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--white-color);
-  font-weight: 500;
-}
-
-.form__input,
-.form__textarea,
-.form__select {
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white-color);
-  font-size: 1rem;
-  transition: var(--transition);
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.form__select {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23ffffff" d="M6 8L0 2h12z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 12px;
-  padding-right: 3rem;
-}
-
-.form__select option {
-  background: var(--black-color);
-  color: var(--white-color);
-  padding: 0.5rem;
-}
-
-.form__input:focus,
-.form__textarea:focus,
-.form__select:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.form__input::placeholder,
-.form__textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.form__textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
 /* Footer */
 .footer {
   background: var(--black-color);
@@ -1051,6 +945,7 @@ a {
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
 }
+
 /* ========================================
    COMPREHENSIVE MEDIA QUERIES
    From largest screens to smallest devices
