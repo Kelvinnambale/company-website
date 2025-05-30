@@ -1,0 +1,27 @@
+:root{
+/* Black Color Variations */
+--black-color: #1a1a2e;
+--black-color-light: #2d2d44;
+--black-color-lighten: #404057;
+
+/* White and Body Colors */
+--white-color: #ffffff;
+--body-color: #f8f9fa;
+
+/* Accent Colors (inspired by your image) */
+--accent-color: #ff6b35; /* Vibrant orange from your gradient */
+--blue-accent: #4f6bff; /* Professional blue from your design */
+
+/* Shadow and Transition */
+--shadow: 0 4px 20px rgba(79, 107, 255, 0.15);
+--transition: all 0.3s ease;
+
+
+--gradient-primary: linear-gradient(135deg, #4f6bff 0%, #ff6b35 100%);
+--gradient-light: linear-gradient(135deg, rgba(79, 107, 255, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+--text-light: #6c757d;
+--border-color: #e9ecef;
+--success-color: #28a745;
+--warning-color: #ffc107;
+--danger-color: #dc3545;
+}
